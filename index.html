@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FVP</title>
-  <link rel="icon" href="./figs/logo.jpg" type="image/png">
+  <title>RoboMIND2.0</title>
+  <link rel="icon" href="./figs/logo.png" type="image/png">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -23,11 +23,12 @@
   </div>
 
   <div class="main-content">
-    <div class="hero-text" style="font-size: 100px; text-align: center; margin-bottom: -10px;">FVP</div>
-    <div class="sub-hero-text" style="text-align: center;">4D Visual Pre-training for Robot Learning</div>
+    <div class="hero-text" style="font-size: 100px; text-align: center; margin-bottom: -10px;">RoboMIND2.0</div>
+    <div class="sub-hero-text" style="text-align: center;">A Multimodal, Bimanual Mobile
+Manipulation Dataset for Generalizable Embodied Intelligence</div>
 
     
-    <!-- add authors -->
+    <!-- add authors
     <div class="authors" style="text-align: center; color: #000000;">
       <span class="author-block" style="font-weight: bold;"><a href="https://jackhck.github.io">Chengkai Hou</a><sup>1</sup> <a href="https://yanjieze.com">Yanjie Ze</a><sup>3</sup> Yankai Fu</a><sup>1</sup>
       Zeyu Gao</a><sup>4</sup> <a href="">Yue Yu</a><sup>2</sup> <a href="">Songbo Hu</a><sup>2</sup> 
@@ -48,8 +49,36 @@
       <span class="affiliation" style="font-weight: normal;"><sup>1</sup>Peking University <sup>2</sup>Tsinghua University <sup>3</sup>Shanghai Qizhi Institute <sup>4</sup>CASIA <sup>5</sup>Shanghai AI Lab</span>
       <br>
       <div class="affiliation" style="text-align: center; margin-bottom: 10px; margin-top: -10px;">Accepted by ICCV 2025</div>
-    </div>
+    </div> -->
 
+    <!-- add authors -->
+    <div class="authors" style="text-align: center; color: #000000;">
+      <div class="author-block" style="font-weight: bold; line-height: 1.6;">
+        Chengkai Hou<sup>1,2,*,&#8225;</sup>, Kun Wu<sup>1,*,&#8225;</sup>, Jiaming Liu<sup>2,*,&#8225;</sup>, Zhengping Che<sup>1,*,&#8224;</sup>, Di Wu<sup>1,2,*</sup>,<br>
+        Fei Liao<sup>1,2,*</sup>, Guangrun Li<sup>1,2,*</sup>, Jingyang He<sup>1,2,*</sup>, Qiuxuan Feng<sup>1,2,*</sup>, Zhao Jin<sup>1,*</sup>,<br>
+        Chenyang Gu<sup>2</sup>, Zhuoyang Liu<sup>2</sup>, Nuowei Han<sup>2</sup>, Xiangju Mi<sup>2</sup>, Yaoxu Lv<sup>2</sup>,<br>
+        Yankai Fu<sup>2</sup>, Gaole Dai<sup>2</sup>, Langzhe Gu<sup>2</sup>, Tao Li<sup>1</sup>, Yuheng Zhang<sup>1</sup>, Xinhua Wang<sup>1</sup>,<br>
+        Shichao Fan<sup>1</sup>, Yixue Zhang<sup>1</sup>, Meng Li<sup>1</sup>, Zhen Zhao<sup>1</sup>, Ning Liu<sup>1</sup>,<br>
+        Zhiyuan Xu<sup>1</sup>, Pei Ren<sup>1</sup>, Junjie Ji<sup>1</sup>, Haonan Liu<sup>1</sup>,<br>
+        Kuan Cheng<sup>2</sup>, Shanghang Zhang<sup>2,&#9993;</sup>, Jian Tang<sup>1,&#9993;</sup>
+      </div>
+
+      <div class="affiliation" style="font-weight: normal; margin-top: 8px; line-height: 1.5;">
+        <sup>1</sup>Beijing Innovation Center of Humanoid Robotics&nbsp;&nbsp;
+        <sup>2</sup>School of Computer Science, Peking University
+      </div>
+
+      <div class="affiliation" style="font-size: 14px; font-weight: normal; margin-top: 6px; line-height: 1.4;">
+        <span><sup>*</sup>Equal contribution</span>&nbsp;&nbsp;
+        <span><sup>&#8224;</sup>Project lead</span>&nbsp;&nbsp;
+        <span><sup>&#8225;</sup>Co-first authors</span>&nbsp;&nbsp;
+        <span><sup>&#9993;</sup>Corresponding authors</span>
+      </div>
+
+      <!-- <div class="affiliation" style="text-align: center; margin-bottom: 10px; margin-top: 6px;">
+        Accepted by ICCV 2025
+      </div> -->
+    </div>
 
 
 
@@ -68,9 +97,28 @@
 
     
     <div class="tagline" id="abstract">Abstract.</div>
-
-
     <div class="section">
+      <p>
+        While data-driven imitation learning has revolutionized robotic manipulation, current approaches remain constrained by the scarcity of large-scale, diverse real-world demonstrations. 
+        Consequently, the ability of existing models to generalize across long-horizon bimanual tasks and mobile manipulation in unstructured environments remains limited.
+      </p>
+      <p>
+        To bridge this gap, we present RoboMIND 2.0, a comprehensive real-world dataset comprising over 310k dual-arm manipulation trajectories collected across six distinct robot embodiments and 739 complex tasks. 
+        Crucially, to support research in contact-rich and spatially extended tasks, the dataset incorporates 12k tactile-enhanced episodes and 20k mobile manipulation trajectories. 
+        Complementing this physical data, we construct high-fidelity digital twins of our real-world environments, releasing an additional 20k-trajectory simulated dataset to facilitate robust sim-to-real transfer. 
+      </p>
+      <p>
+        To fully exploit the potential of RoboMIND 2.0, we propose MIND-2 system, a hierarchical dual-system framework optimized via offline reinforcement learning. 
+        CoVLA integrates a high-level semantic planner (MIND-2-VLM) to decompose abstract natural language instructions into grounded subgoals, coupled with a low-level Vision-Language-Action executor (MIND-2-VLA), which generates precise, proprioception-aware motor actions. 
+        Extensive evaluations across six distinct robotic embodiments validate the effectiveness of our dataset and demonstrate that MIND-2 system significantly outperforms four single-task baselines (covering both 2D image and 3D point cloud modalities as well as four state-of-the-art VLA models.
+        Furthermore, we observe that integrating tactile modalities yields measurable gains in fine-grained manipulation tasks. 
+      </p>
+      <p>
+        Finally, experimental results show that mixing real and simulated data during training consistently enhances physical execution performance, validating both the fidelity of our simulation benchmarks and the cost-efficiency of synthetic data augmentation. 
+        Our full dataset, simulation assets, and training code are publicly released to advance research in general-purpose robotic manipulation.  
+    </div> 
+
+    <!-- <div class="section">
       <p>
         General visual representations learned from web-scale datasets for robotics have achieved great success in recent years, enabling data-efficient robot learning on manipulation tasks;
       </p>
@@ -81,7 +129,7 @@
        Across twelve real-world manipulation tasks, FVP boosts the average success rate of 3D Diffusion Policy (DP3) for these tasks by 28\%. The FVP pre-trained DP3 achieves state-of-the-art performance across imitation learning methods. Moreover, the efficacy of FVP adapts across various point cloud encoders and datasets. 
       Finally, we apply FVP to the RDT-1B, a larger Vision-Language-Action robotic model, enhancing its performance on various robot tasks.
       
-    </div> 
+    </div>  -->
     <img src="./figs/teaser.png"></img>
     <!-- Caption for Figure 1 (Teaser Video) -->
     <p class="figure-caption">
