@@ -7,6 +7,7 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="toc">
     <h3>Content</h3>
@@ -15,8 +16,7 @@
       <li><a href="#abstract">Abstract</a></li>
       <li><a href="#collection-platform">Collection Platform</a></li>
       <li><a href="#realworld-setup">Real-world Setup</a></li>
-      <li><a href="#realworld-demo">Real-world Demo</a></li>
-      <li><a href="#realworld-results">Real-world Results</a></li>
+      <li><a href="#realworld-results">Real-world Experiments</a></li>
       <li><a href="#dual-system-experiments">Dual System Experiments</a></li>
       <!-- <li class="toc-subsection"><a href="#training-in-sim">Training in Sim</a></li> -->
     </ul>
@@ -61,23 +61,23 @@ Manipulation Dataset for Generalizable Embodied Intelligence</div>
     <div class="tagline" id="abstract">Abstract.</div>
     <div class="section">
       <p>
-        While data-driven imitation learning has revolutionized robotic manipulation, current approaches remain constrained by the scarcity of large-scale, diverse real-world demonstrations. 
+        While data-driven imitation learning has revolutionized robotic manipulation, current approaches remain constrained by the scarcity of large-scale, diverse real-world demonstrations.
         Consequently, the ability of existing models to generalize across long-horizon bimanual tasks and mobile manipulation in unstructured environments remains limited.
       </p>
       <p>
-        To bridge this gap, we present RoboMIND 2.0, a comprehensive real-world dataset comprising over 310k dual-arm manipulation trajectories collected across six distinct robot embodiments and 739 complex tasks. 
-        Crucially, to support research in contact-rich and spatially extended tasks, the dataset incorporates 12k tactile-enhanced episodes and 20k mobile manipulation trajectories. 
-        Complementing this physical data, we construct high-fidelity digital twins of our real-world environments, releasing an additional 20k-trajectory simulated dataset to facilitate robust sim-to-real transfer. 
+        To bridge this gap, we present RoboMIND 2.0, a comprehensive real-world dataset comprising over 310k dual-arm manipulation trajectories collected across six distinct robot embodiments and 739 complex tasks.
+        Crucially, to support research in contact-rich and spatially extended tasks, the dataset incorporates 12k tactile-enhanced episodes and 20k mobile manipulation trajectories.
+        Complementing this physical data, we construct high-fidelity digital twins of our real-world environments, releasing an additional 20k-trajectory simulated dataset to facilitate robust sim-to-real transfer.
       </p>
       <p>
-        To fully exploit the potential of RoboMIND 2.0, we propose MIND-2 system, a hierarchical dual-system framework optimized via offline reinforcement learning. 
-        CoVLA integrates a high-level semantic planner (MIND-2-VLM) to decompose abstract natural language instructions into grounded subgoals, coupled with a low-level Vision-Language-Action executor (MIND-2-VLA), which generates precise, proprioception-aware motor actions. 
+        To fully exploit the potential of RoboMIND 2.0, we propose MIND-2 system, a hierarchical dual-system framework optimized via offline reinforcement learning.
+        CoVLA integrates a high-level semantic planner (MIND-2-VLM) to decompose abstract natural language instructions into grounded subgoals, coupled with a low-level Vision-Language-Action executor (MIND-2-VLA), which generates precise, proprioception-aware motor actions.
         Extensive evaluations across six distinct robotic embodiments validate the effectiveness of our dataset and demonstrate that MIND-2 system significantly outperforms four single-task baselines (covering both 2D image and 3D point cloud modalities as well as four state-of-the-art VLA models).
-        Furthermore, we observe that integrating tactile modalities yields measurable gains in fine-grained manipulation tasks. 
+        Furthermore, we observe that integrating tactile modalities yields measurable gains in fine-grained manipulation tasks.
       </p>
       <p>
-        Finally, experimental results show that mixing real and simulated data during training consistently enhances physical execution performance, validating both the fidelity of our simulation benchmarks and the cost-efficiency of synthetic data augmentation. 
-        Our full dataset, simulation assets, and training code are publicly released to advance research in general-purpose robotic manipulation.  
+        Finally, experimental results show that mixing real and simulated data during training consistently enhances physical execution performance, validating both the fidelity of our simulation benchmarks and the cost-efficiency of synthetic data augmentation.
+        Our full dataset, simulation assets, and training code are publicly released to advance research in general-purpose robotic manipulation.
       </p>
     </div>
 
@@ -137,7 +137,7 @@ MIND-2-VLA, enabling robust long-horizon mobile manipulation across diverse scen
           <img src="./figs/robomindexpset.png" style="width: 100%; height: auto; border-radius: 10px;" />
           <p class="figure-caption" style="text-align: left; margin-top: 10px;">
             <b>Robotic real-world setup.</b> For the Franka and UR5e robots, we use cameras positioned
-            at the top, left, and right viewpointsნი to record the visual information of the task trajectories. For the
+            at the top, left, and right viewpoints to record the visual information of the task trajectories. For the
             humanoid (Tien Kung and Tian Yi) robots, we use their built-in RGB-D cameras to capture visual
             observations. For the AgileX and ARX robots, we use dual wrist-mounted cameras (one on each
             arm) as well as a head-mounted camera to capture visual information.
@@ -146,191 +146,170 @@ MIND-2-VLA, enabling robust long-horizon mobile manipulation across diverse scen
       </div>
     </div>
 
-    <!-- ===================== INSERTED: Real-world Demo Videos (BEFORE Real-world Results) ===================== -->
-    <div class="tagline" id="realworld-demo">Real-world Demo.</div>
-
-    <!-- collaboration_training -->
-    <div class="video-gallery-section" id="demoDualTrainingSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryDualTraining">
-          <video class="gallery-video" src="./demos/collab_mob_tasks_3/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/collab_mob_tasks_2/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/collab_mob_tasks_1/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftDualTraining">&lt;</button>
-          <button class="gallery-nav right" id="demoRightDualTraining">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Dual-robot Collaborative Tasks</b>
-        </p>
-      </div>
-    </div>
-    <!-- franka_tasks -->
-    <div class="video-gallery-section" id="demoFrankaTasksSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryFrankaTasks">
-          <video class="gallery-video" src="./demos/franka_tasks_task1/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/franka_tasks_task2/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/franka_tasks_task3/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/franka_tasks_task4/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/franka_tasks_task5/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/franka_tasks_task6/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftFrankaTasks">&lt;</button>
-          <button class="gallery-nav right" id="demoRightFrankaTasks">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Franka Tasks</b>
-        </p>
-      </div>
-    </div>
-    <!-- ur_training -->
-    <div class="video-gallery-section" id="demoUrTrainingSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryUrTraining">
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_1/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_2/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_3/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_4/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_5/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_6/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftUrTraining">&lt;</button>
-          <button class="gallery-nav right" id="demoRightUrTraining">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>UR Tasks</b>
-        </p>
-      </div>
-    </div>
-    
-    <!-- agilex_mob -->
-    <div class="video-gallery-section" id="demoAgilexMobSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryAgilexMob">
-          <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_arrange_dishes/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_clean/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_insert_tube/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_move_to_plate/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftAgilexMob">&lt;</button>
-          <button class="gallery-nav right" id="demoRightAgilexMob">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Agilex Mobile Manipulation Tasks</b>
-        </p>
-      </div>
-    </div>
-
-    <!-- agilex_training -->
-    <div class="video-gallery-section" id="demoAgilexTrainingSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryAgilexTraining">
-          <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_2_make_sandwich/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_2_pour_meat_into_the_plate/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_assemble_PVC_drainage_pipe_clamps/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_make_sandwich_and_place_on_tray_250507/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_move_yellow_beetle_car_and_pick_and_place_it_into_the_blue_storage_box_20250430/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/agilex_training_tasks_gpt_agilex_cobotmagic2_dualArm-gripper-3cameras_2_sort_parts_20250527/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftAgilexTraining">&lt;</button>
-          <button class="gallery-nav right" id="demoRightAgilexTraining">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Agilex Manipulation Tasks</b>
-        </p>
-      </div>
-    </div>
-
-    <!-- ark_training -->
-    <div class="video-gallery-section" id="demoArkTrainingSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryArkTraining">
-          <video class="gallery-video" src="./demos/ark_training_tasks_ark_02_collect_button/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ark_training_tasks_ark_03_insert_blue_toy_into_slot_250807/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ark_training_tasks_ark_1_dual_1_place_the_milk/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ark_training_tasks_ark_1_select_workpiece/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ark_training_tasks_ark_dual1_cross_move_apple_from_plate_to_bowl_250511/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/ark_training_tasks_gpt_ark_1_sort_fruits_250519/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftArkTraining">&lt;</button>
-          <button class="gallery-nav right" id="demoRightArkTraining">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Ark Tasks</b>
-        </p>
-      </div>
-    </div>
-
-
-
-    <!-- tianyi_mob -->
-    <div class="video-gallery-section" id="demoTianyiMobSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryTianyiMob">
-          <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_clean_the_dust/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_Pick_and_Place_apple/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_pick_and_place_onto_desktop/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_pick_and_place_yellow_cube_in_box/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftTianyiMob">&lt;</button>
-          <button class="gallery-nav right" id="demoRightTianyiMob">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Tianyi Tasks</b>
-        </p>
-      </div>
-    </div>
-
-    <!-- tienkung_training -->
-    <div class="video-gallery-section" id="demoTienkungTrainingSection">
-      <div class="video-gallery-container">
-        <div class="video-gallery" id="demoGalleryTienkungTraining">
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_2_open_pot_lid/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_2_stack_the_cup/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_1_find_out_circuit_breaker_into_the_other_tray/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_pour_oil_for_gear/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_press_stop_button_of_control_box/demo.mp4" autoplay muted playsinline loop></video>
-          <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_sweep_electronic_rubbish/demo.mp4" autoplay muted playsinline loop></video>
-        </div>
-      </div>
-      <div class="gallery-caption-container">
-        <div class="gallery-nav-controls">
-          <button class="gallery-nav left" id="demoLeftTienkungTraining">&lt;</button>
-          <button class="gallery-nav right" id="demoRightTienkungTraining">&gt;</button>
-        </div>
-        <p class="figure-caption gallery-caption">
-          <b>Tienkung Tasks</b>
-        </p>
-      </div>
-    </div>
-
-
-    <!-- ===================== END INSERTED: Real-world Demo Videos ===================== -->
-
+    <!-- ===================== REAL-WORLD RESULTS: (Part1 demos excl. collab) + (Part2 result figure) ===================== -->
     <div class="tagline" id="realworld-results">Real-World Results.</div>
     <div class="section">
+
+      <!-- Part 1: Real-world demos (excluding collaboration_training) -->
+
+      <!-- franka_tasks -->
+      <div class="video-gallery-section" id="demoFrankaTasksSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryFrankaTasks">
+            <video class="gallery-video" src="./demos/franka_tasks_task1/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/franka_tasks_task2/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/franka_tasks_task3/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/franka_tasks_task4/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/franka_tasks_task5/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/franka_tasks_task6/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftFrankaTasks">&lt;</button>
+            <button class="gallery-nav right" id="demoRightFrankaTasks">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Franka Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- ur_training -->
+      <div class="video-gallery-section" id="demoUrTrainingSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryUrTraining">
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_1/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_2/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_3/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_4/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_5/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ur_training_tasks_ur_training_task_6/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftUrTraining">&lt;</button>
+            <button class="gallery-nav right" id="demoRightUrTraining">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>UR Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- agilex_mob -->
+      <div class="video-gallery-section" id="demoAgilexMobSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryAgilexMob">
+            <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_arrange_dishes/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_clean/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_insert_tube/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_mob_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_5_navigate_move_to_plate/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftAgilexMob">&lt;</button>
+            <button class="gallery-nav right" id="demoRightAgilexMob">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Agilex Mobile Manipulation Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- agilex_training -->
+      <div class="video-gallery-section" id="demoAgilexTrainingSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryAgilexTraining">
+            <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_2_make_sandwich/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_2_pour_meat_into_the_plate/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_assemble_PVC_drainage_pipe_clamps/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_make_sandwich_and_place_on_tray_250507/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_training_tasks_agilex_cobotmagic2_dualArm-gripper-3cameras_2_move_yellow_beetle_car_and_pick_and_place_it_into_the_blue_storage_box_20250430/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/agilex_training_tasks_gpt_agilex_cobotmagic2_dualArm-gripper-3cameras_2_sort_parts_20250527/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftAgilexTraining">&lt;</button>
+            <button class="gallery-nav right" id="demoRightAgilexTraining">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Agilex Manipulation Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- ark_training -->
+      <div class="video-gallery-section" id="demoArkTrainingSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryArkTraining">
+            <video class="gallery-video" src="./demos/ark_training_tasks_ark_02_collect_button/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ark_training_tasks_ark_03_insert_blue_toy_into_slot_250807/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ark_training_tasks_ark_1_dual_1_place_the_milk/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ark_training_tasks_ark_1_select_workpiece/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ark_training_tasks_ark_dual1_cross_move_apple_from_plate_to_bowl_250511/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/ark_training_tasks_gpt_ark_1_sort_fruits_250519/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftArkTraining">&lt;</button>
+            <button class="gallery-nav right" id="demoRightArkTraining">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Ark Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- tianyi_mob -->
+      <div class="video-gallery-section" id="demoTianyiMobSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryTianyiMob">
+            <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_clean_the_dust/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_Pick_and_Place_apple/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_pick_and_place_onto_desktop/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tianyi_mob_training_tasks_tienkung_prod2_dualArm-dexHand-1cameras_1_pick_and_place_yellow_cube_in_box/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftTianyiMob">&lt;</button>
+            <button class="gallery-nav right" id="demoRightTianyiMob">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Tianyi Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- tienkung_training -->
+      <div class="video-gallery-section" id="demoTienkungTrainingSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryTienkungTraining">
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_2_open_pot_lid/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_2_stack_the_cup/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_1_find_out_circuit_breaker_into_the_other_tray/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_pour_oil_for_gear/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_press_stop_button_of_control_box/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/tienkung_training_tasks_tienkung_pro2_dualArm-gripper-1cameras_2_sweep_electronic_rubbish/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftTienkungTraining">&lt;</button>
+            <button class="gallery-nav right" id="demoRightTienkungTraining">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Tienkung Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- Part 2: Existing real-world results figure -->
       <div style="display: flex; justify-content: center; margin: 16px 0;">
         <div style="width: min(980px, 96%); text-align: center;">
           <img src="./figs/real-res.png" style="width: 100%; height: auto; border-radius: 10px;" />
@@ -340,13 +319,36 @@ MIND-2-VLA, enabling robust long-horizon mobile manipulation across diverse scen
           </p>
         </div>
       </div>
-    </div>
 
-    <!-- ===================== DUAL SYSTEM EXPERIMENTS (REPLACES TWO SECTIONS) ===================== -->
+    </div>
+    <!-- ===================== END REAL-WORLD RESULTS ===================== -->
+
+    <!-- ===================== DUAL SYSTEM EXPERIMENTS: Part1 collab demo + Part2 original figures ===================== -->
     <div class="tagline" id="dual-system-experiments">Dual System Experiments.</div>
 
     <div class="section">
-      <!-- Figure 1 -->
+
+      <!-- Part 1: Collaboration demo (moved here) -->
+      <div class="video-gallery-section" id="demoDualTrainingSection">
+        <div class="video-gallery-container">
+          <div class="video-gallery" id="demoGalleryDualTraining">
+            <video class="gallery-video" src="./demos/collab_mob_tasks_3/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/collab_mob_tasks_2/demo.mp4" autoplay muted playsinline loop></video>
+            <video class="gallery-video" src="./demos/collab_mob_tasks_1/demo.mp4" autoplay muted playsinline loop></video>
+          </div>
+        </div>
+        <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="demoLeftDualTraining">&lt;</button>
+            <button class="gallery-nav right" id="demoRightDualTraining">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Dual-robot Collaborative Tasks</b>
+          </p>
+        </div>
+      </div>
+
+      <!-- Part 2: Original dual system figures -->
       <div style="display: flex; justify-content: center; margin: 16px 0;">
         <div style="width: min(980px, 96%); text-align: center;">
           <img src="./figs/dual-mob.png" style="width: 100%; height: auto; border-radius: 10px;" />
@@ -358,35 +360,39 @@ MIND-2-VLA, enabling robust long-horizon mobile manipulation across diverse scen
         </div>
       </div>
 
-      <!-- Figure 2 -->
       <div style="display: flex; justify-content: center; margin: 16px 0;">
         <div style="width: min(980px, 96%); text-align: center;">
           <img src="./figs/dual-col.png" style="width: 100%; height: auto; border-radius: 10px;" />
           <p class="figure-caption" style="text-align: left; margin-top: 10px;">
             <b>Success rates across three collaborative tasks.</b>
-            MIND-2 (Post Training) is instantiated by fine-tuning InternVL3 and $\pi_{0.5}$ directly on data from the three multi-robot collaboration tasks.
+            MIND-2 (Post Training) is instantiated by fine-tuning InternVL3 and pi0.5 directly on data from the three multi-robot collaboration tasks.
             MIND-2 (Full-scale Training) is first pretrained on the full-scale mobile manipulation dataset using a fast-slow system architecture, and then further fine-tuned via post-training on data from three multi-robot collaboration tasks.
             MIND-2 (Offline RL), after full-scale training, we apply Implicit Q-Learning (IQL) to conduct offline reinforcement learning on the MIND-2-VLA.
           </p>
         </div>
       </div>
+
     </div>
     <!-- ===================== END DUAL SYSTEM EXPERIMENTS ===================== -->
 
     <div class="bibtex-code">
       <div class="bibtex-title">BibTeX</div>
-      <pre><code>@article{cheng2025fvp,
-    author    = {Chengkai Hou and Yanjie Ze and Yankai Fu and Zeyu Gao and Yue Yu and Songbo Hu and Shanghang Zhang and Huazhe Xu},
-    title     = {FVP: 4D Visual Pre-training for Robot Learning},
-    journal   = {ICCV},
-    year      = {2025},
-  }</code></pre>
+      <pre><code>@misc{hou2025robomind20multimodalbimanual,
+      title={RoboMIND 2.0: A Multimodal, Bimanual Mobile Manipulation Dataset for Generalizable Embodied Intelligence}, 
+      author={Chengkai Hou and Kun Wu and Jiaming Liu and Zhengping Che and Di Wu and Fei Liao and Guangrun Li and Jingyang He and Qiuxuan Feng and Zhao Jin and Chenyang Gu and Zhuoyang Liu and Nuowei Han and Xiangju Mi and Yaoxu Lv and Yankai Fu and Gaole Dai and Langzhe Gu and Tao Li and Yuheng Zhang and Yixue Zhang and Xinhua Wang and Shichao Fan and Meng Li and Zhen Zhao and Ning Liu and Zhiyuan Xu and Pei Ren and Junjie Ji and Haonan Liu and Kuan Cheng and Shanghang Zhang and Jian Tang},
+      year={2025},
+      eprint={2512.24653},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2512.24653}, 
+}</code></pre>
     </div>
+
   </div> <!-- End of main-content div -->
 
-  <div class="footer">
+  <!-- <div class="footer">
      © Shanghai Qi Zhi Institute | Webpage template from <a href="https://www.videomimic.net/">VideoMimic</a>.
-  </div>
+  </div> -->
 
   <!-- Teaser Video Autoplay with Delay and Loop (video is commented out, so harmless) -->
   <script>
@@ -445,7 +451,7 @@ MIND-2-VLA, enabling robust long-horizon mobile manipulation across diverse scen
     });
   </script>
 
-  <!-- ADDED: Navigation for inserted demo galleries -->
+  <!-- Navigation for demo galleries (now used by realworld-results + dual-system-experiments) -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const demoGalleries = [
