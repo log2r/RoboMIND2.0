@@ -8,3 +8,4 @@
 *.jpeg !text !filter !merge !diff
 *.gif !text !filter !merge !diff
 teaser_video.mp4 filter=lfs diff=lfs merge=lfs -text
+demos/*.mp4 filter=lfs diff=lfs merge=lfs -text
