@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 
 FPS = 30
-TARGET_SEC = 40
+TARGET_SEC = 60
 TARGET_FRAMES = FPS * TARGET_SEC
 
 
