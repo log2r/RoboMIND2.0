@@ -6,6 +6,41 @@
   <link rel="icon" href="./figs/logo.png" type="image/png">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* GIF 阵列样式 */
+    .gif-gallery-section {
+      margin: 10px 0;
+    }
+    .gif-task-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5px;
+      margin-bottom: 0.5px;
+    }
+    .gif-task-item {
+      flex: 0 0 calc(16.666% - 4px); /* 固定宽度（6列），精准减去gap值，确保填满整行 */
+      box-sizing: border-box;
+      padding: 0; /* 清除内边距 */
+      margin: 0; /* 清除外边距 */
+    }
+    .gif-task-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      border: 1px solid #eee;
+    }
+    /* 响应式适配 */
+    @media (max-width: 1200px) {
+      .gif-task-item {
+        min-width: calc(33.333% - 10px); /* 屏幕变小时每行3个 */
+      }
+    }
+    @media (max-width: 768px) {
+      .gif-task-item {
+        min-width: calc(50% - 10px); /* 手机端每行2个 */
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -61,6 +96,188 @@ Manipulation Dataset for Generalizable Embodied Intelligence</div>
       <a href="https://arxiv.org/abs/2512.24653" target="_blank">[<strong>arxiv</strong>]</a>
       <a href="https://modelscope.cn/datasets/X-Humanoid/RoboMIND2.0/" target="_blank">[<strong>code</strong>]</a>
     </div>
+
+    <!-- ===================== 新增的GIF阵列区域 ===================== -->
+    <div class="gif-gallery-section">
+      <h2 style="font-size: 24px; text-align: center; margin: 30px 0;">Dataset Overview</h2>
+      
+      <!-- Franka 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task1/camera_front.gif" alt="Franka Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task2/camera_front.gif" alt="Franka Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task3/camera_front.gif" alt="Franka Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task4/camera_front.gif" alt="Franka Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task5/camera_front.gif" alt="Franka Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/franka/task6/camera_front.gif" alt="Franka Task 6">
+        </div>
+      </div>
+
+      <!-- UR 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task1/camera_front.gif" alt="UR Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task2/camera_front.gif" alt="UR Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task3/camera_front.gif" alt="UR Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task4/camera_front.gif" alt="UR Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task5/camera_front.gif" alt="UR Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ur/task6/camera_front.gif" alt="UR Task 6">
+        </div>
+      </div>
+
+      <!-- AGX 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task1/camera_front.gif" alt="AGX Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task2/camera_front.gif" alt="AGX Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task3/camera_front.gif" alt="AGX Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task4/camera_front.gif" alt="AGX Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task5/camera_front.gif" alt="AGX Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agx/task6/camera_front.gif" alt="AGX Task 6">
+        </div>
+      </div>
+
+      <!-- Agilex Mobile 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task1/camera_front.gif" alt="Agilex Mobile Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task2/camera_front.gif" alt="Agilex Mobile Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task3/camera_front.gif" alt="Agilex Mobile Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task4/camera_front.gif" alt="Agilex Mobile Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task5/camera_front.gif" alt="Agilex Mobile Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/agilex_mobile/task6/camera_front.gif" alt="Agilex Mobile Task 6">
+        </div>
+      </div>
+
+      <!-- ARK 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task1/camera_front.gif" alt="ARK Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task2/camera_front.gif" alt="ARK Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task3/camera_front.gif" alt="ARK Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task4/camera_front.gif" alt="ARK Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task5/camera_front.gif" alt="ARK Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark/task6/camera_front.gif" alt="ARK Task 6">
+        </div>
+      </div>
+
+      <!-- ARK Mobile 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task1/camera_front.gif" alt="ARK Mobile Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task2/camera_front.gif" alt="ARK Mobile Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task3/camera_front.gif" alt="ARK Mobile Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task4/camera_front.gif" alt="ARK Mobile Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task5/camera_front.gif" alt="ARK Mobile Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/ark_mobile/task6/camera_front.gif" alt="ARK Mobile Task 6">
+        </div>
+      </div>
+
+      <!-- Tienkung 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task1/camera_front.gif" alt="Tienkung Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task2/camera_front.gif" alt="Tienkung Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task3/camera_front.gif" alt="Tienkung Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task4/camera_front.gif" alt="Tienkung Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task5/camera_front.gif" alt="Tienkung Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tienkung/task6/camera_front.gif" alt="Tienkung Task 6">
+        </div>
+      </div>
+
+      <!-- Tianyi 机器人 -->
+      <div class="gif-task-row">
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task1/camera_front.gif" alt="Tianyi Task 1">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task2/camera_front.gif" alt="Tianyi Task 2">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task3/camera_front.gif" alt="Tianyi Task 3">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task4/camera_front.gif" alt="Tianyi Task 4">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task5/camera_front.gif" alt="Tianyi Task 5">
+        </div>
+        <div class="gif-task-item">
+          <img src="./gifs/tianyi/task6/camera_front.gif" alt="Tianyi Task 6">
+        </div>
+      </div>
+    </div>
+    <!-- ===================== GIF阵列区域结束 ===================== -->
 
     <div class="tagline" id="abstract">Abstract.</div>
     <div class="section">
